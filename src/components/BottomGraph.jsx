@@ -32,7 +32,7 @@ export default function BottomGraph() {
       let maxContests = 0;
 
       try {
-        const codeforcesRes = await axios.get(`/api/stats/codeforcesRating/${email}`, {
+        const codeforcesRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codeforcesRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const cfContests = codeforcesRes.data.contestRating ? codeforcesRes.data.contestRating.length : 0;
@@ -51,7 +51,7 @@ export default function BottomGraph() {
         }
       }
       try {
-        const codechefRes = await axios.get(`/api/stats/codechefRating/${email}`, {
+        const codechefRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codechefRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const ccContests = codechefRes.data.contestRating ? codechefRes.data.contestRating.length : 0;
@@ -71,7 +71,7 @@ export default function BottomGraph() {
       }
 
       try {
-        const atcoderRes = await axios.get(`/api/stats/atcoderRating/${email}`, {
+        const atcoderRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/atcoderRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const atContests = atcoderRes.data.contestRating ? atcoderRes.data.contestRating.length : 0;

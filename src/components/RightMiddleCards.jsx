@@ -27,7 +27,7 @@ export default function RightMiddleCards() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const res = await axios.get(`/api/stats/codeforcesRating/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codeforcesRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserRatings(prev => ({
@@ -39,7 +39,7 @@ export default function RightMiddleCards() {
         dispatch(setError('Failed to fetch CodeForces data'));
       }
       try {
-        const res = await axios.get(`/api/stats/codechefRating/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codechefRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserRatings(prev => ({
@@ -51,7 +51,7 @@ export default function RightMiddleCards() {
         dispatch(setError('Failed to fetch CodeChef data'));
       }
       try {
-        const res = await axios.get(`/api/stats/atcoderRating/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/atcoderRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserRatings(prev => ({

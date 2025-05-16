@@ -55,7 +55,7 @@ export default function PersonalInfo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/update/personalInfo/${email}`, formData, {
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/update/personalInfo/${email}`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       dispatch(setError(null)); // Clear any previous errors

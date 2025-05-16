@@ -49,7 +49,7 @@ export default function EditPersonal() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`/api/fetch/getPersonalInfo/${email}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/fetch/getPersonalInfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const userData = response.data;
@@ -83,7 +83,7 @@ export default function EditPersonal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/update/editPersonalInfo/${email}`, formData, {
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/update/editPersonalInfo/${email}`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       dispatch(setError(null)); // Clear any previous errors

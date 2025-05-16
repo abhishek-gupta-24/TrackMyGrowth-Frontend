@@ -31,7 +31,7 @@ export default function EditPlatforms() {
   useEffect(() => {
     const fetchUsernames = async () => {
       try {
-        const res = await axios.get(`/api/fetch/getPlatformInfo/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/fetch/getPlatformInfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = res.data;
@@ -63,7 +63,7 @@ export default function EditPlatforms() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/update/platforms/userinfo/${email}`, {
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/update/platforms/userinfo/${email}`, {
         leetcode: usernames.leetcode,
         codeforces: usernames.codeforces,
         geeksforgeeks: usernames.geeksforgeeks,

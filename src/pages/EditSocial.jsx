@@ -31,7 +31,7 @@ export default function EditSocial() {
   useEffect(() => {
     const fetchUsernames = async () => {
       try {
-        const res = await axios.get(`/api/fetch/getSocialInfo/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/fetch/getSocialInfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = res.data;
@@ -60,7 +60,7 @@ export default function EditSocial() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/update/editSocialInfo/${email}`, {
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/update/editSocialInfo/${email}`, {
         linkedin: usernames.linkedin,
         instagram: usernames.instagram,
         twitter: usernames.twitter,

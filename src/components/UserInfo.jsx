@@ -36,7 +36,7 @@ export default function UserInfo() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const res = await axios.get(`/api/fetch/userinfo/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/fetch/userinfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUserInfo(res.data);

@@ -21,7 +21,7 @@ export default function RightCardsContainer() {
       let newTotal = 0;
       let dsaQuestions = 0;
       try {
-        const res = await axios.get(`/api/stats/leetcodeInfo/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/leetcodeInfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         newTotal += res.data.totalQuestions || 0;
@@ -30,7 +30,7 @@ export default function RightCardsContainer() {
         dispatch(setError('Failed to fetch LeetCode data'));
       }
       try {
-        const res = await axios.get(`/api/stats/codeforcesInfo/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codeforcesInfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         newTotal += res.data.totalQuestions || 0;
@@ -38,7 +38,7 @@ export default function RightCardsContainer() {
         dispatch(setError('Failed to fetch CodeForces data'));
       }
       try {
-        const res = await axios.get(`/api/stats/gfgInfo/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/gfgInfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         newTotal += res.data.totalQuestions || 0;
@@ -47,7 +47,7 @@ export default function RightCardsContainer() {
         dispatch(setError('Failed to fetch GFG data'));
       }
       try {
-        const res = await axios.get(`/api/stats/atcoderInfo/${email}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/atcoderInfo/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         newTotal += res.data.totalQuestions || 0;

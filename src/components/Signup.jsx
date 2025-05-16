@@ -15,11 +15,12 @@ export default function Signup() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/signup', {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/signup`, {
         username,
         email,
         password
       });
+      
       dispatch(login({ email, token: res.data.token }));
       navigate('/personalInfo');
     } catch (err) {

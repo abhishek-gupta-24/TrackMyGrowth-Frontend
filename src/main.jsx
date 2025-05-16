@@ -19,7 +19,6 @@ import Features from './pages/Features.jsx'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
-EditSocial
 
 const router = createBrowserRouter([
   {

@@ -28,7 +28,7 @@ export default function Info() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/update/platforms/userinfo/${email}`, {
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/update/platforms/userinfo/${email}`, {
         leetcode: usernames.leetcode,
         codeforces: usernames.codeforces,
         geeksforgeeks: usernames.geeksforgeeks,
