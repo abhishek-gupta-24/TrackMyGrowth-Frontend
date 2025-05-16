@@ -68,7 +68,8 @@ export default function EditSocial() {
       }, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      dispatch(setError(null)); // Clear any previous errors
+      dispatch(setError(null));
+      navigate('/profile');
     } catch (err) {
       const errorMessage = err.response?.data?.error || 'Failed to submit social info';
       dispatch(setError(errorMessage));

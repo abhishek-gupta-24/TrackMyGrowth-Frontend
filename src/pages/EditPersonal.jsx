@@ -86,7 +86,8 @@ export default function EditPersonal() {
       await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/update/editPersonalInfo/${email}`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      dispatch(setError(null)); // Clear any previous errors
+      dispatch(setError(null));
+      navigate('/profile');
     } catch (error) {
       const errorMessage = error.response?.data?.error || 'Failed to update personal info';
       dispatch(setError(errorMessage));
