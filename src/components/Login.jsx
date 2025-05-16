@@ -22,6 +22,7 @@ export default function Login() {
         `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`,
         { email, password }
       );
+      dispatch(login({ email, token: res.data.token }));
       navigate('/profile');
     } catch (err) {
       const errorMessage = err.response?.data?.error || 'Login failed';

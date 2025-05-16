@@ -78,7 +78,6 @@ export default function Info() {
               value={usernames[platform.toLowerCase()]}
               onChange={handleChange}
               className="w-full px-4 py-1 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
             />
           </div>
         ))}
