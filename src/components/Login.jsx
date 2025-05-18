@@ -12,6 +12,7 @@ export default function Login() {
   const { error } = useSelector((state) => state.auth);
 
   const goToSignup = () => {
+    dispatch(setError(''));
     navigate('/signup');
   };
 
@@ -34,6 +35,7 @@ export default function Login() {
     <div className="h-screen w-full flex items-center justify-center bg-gray-900 text-white">
       <form onSubmit={handleLogin} className="max-w-md p-6 border border-gray-700 rounded-lg shadow-xl bg-gray-800">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        {error && <div className="text-red-500 text-sm mb-4 text-center">{error}</div>}
         <input
           className="w-full mb-4 px-4 py-2 border border-gray-600 bg-gray-900 text-white rounded"
           value={email}

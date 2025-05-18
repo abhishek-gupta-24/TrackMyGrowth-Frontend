@@ -11,7 +11,11 @@ export default function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { error } = useSelector((state) => state.auth);
-
+  const handleLogin=()=>{
+    e.preventDefault();
+    dispatch(setError(''))
+    navigate('/login')
+  }
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
@@ -70,7 +74,7 @@ export default function Signup() {
           <span>Already have an account? </span>
           <button
             type="button"
-            onClick={() => navigate('/login')}
+            onClick={handleLogin}
             className="text-blue-500 hover:underline"
           >
             Login
