@@ -13,7 +13,7 @@ export default function Signup() {
   const { error } = useSelector((state) => state.auth);
   const [load, setLoad] = useState(false);
 
-  const handleLogin=()=>{
+  const handleLogin=(e)=>{
     e.preventDefault();
     dispatch(setError(''))
     navigate('/login')
