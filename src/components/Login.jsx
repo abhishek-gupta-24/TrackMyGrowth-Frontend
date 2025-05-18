@@ -39,9 +39,10 @@ export default function Login() {
       <form onSubmit={handleLogin} className="max-w-md p-6 border border-gray-700 rounded-lg shadow-xl bg-gray-800">
       {load
           ?
-          <div className='flex justify-center'>
-            <div class="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-          </div>
+        <div className="flex justify-center">
+          <div className="w-8 h-8 mb-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+
           :
           <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         }
