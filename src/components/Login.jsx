@@ -10,7 +10,8 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { error } = useSelector((state) => state.auth);
-
+  const [load, setLoad] = useState(false);
+  
   const goToSignup = () => {
     dispatch(setError(''));
     navigate('/signup');
@@ -18,6 +19,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoad(true);
     try {
         const res = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`,
@@ -29,12 +31,20 @@ export default function Login() {
       const errorMessage = err.response?.data?.error || 'Login failed';
       dispatch(setError(errorMessage));
     }
+    setLoad(false);
   };
 
   return (
     <div className="h-screen w-full flex items-center justify-center bg-gray-900 text-white">
       <form onSubmit={handleLogin} className="max-w-md p-6 border border-gray-700 rounded-lg shadow-xl bg-gray-800">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+      {load
+          ?
+          <div className='flex justify-center'>
+            <div class="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          :
+          <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        }
         {error && <div className="text-red-500 text-sm mb-4 text-center">{error}</div>}
         <input
           className="w-full mb-4 px-4 py-2 border border-gray-600 bg-gray-900 text-white rounded"
