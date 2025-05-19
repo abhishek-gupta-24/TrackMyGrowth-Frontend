@@ -39,9 +39,6 @@ export default function Home() {
                Features
              </button>
         </div>
-        <p className="text-sm text-gray-400 mt-6">
-        This application is presently optimized for laptops only. We are working to bring you a mobile version soon
-        </p>
       </div>
     </div>
   );
