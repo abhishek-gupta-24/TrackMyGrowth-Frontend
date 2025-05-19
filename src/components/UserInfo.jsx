@@ -56,7 +56,7 @@ export default function UserInfo() {
   const { username, bio, college, country, platforms, socials } = userInfo;
 
   return (
-    <div className="w-full max-w-xs bg-gray-900 text-white p-4 sm:p-6 shadow-xl rounded-2xl min-h-full">
+    <div className="w-sm max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl bg-gray-900 text-white p-4 sm:p-6 shadow-xl rounded-2xl min-h-full">
       {error && <div className="text-red-500 text-sm mb-4 text-center">{error}</div>}
       <div className="flex flex-col items-center mb-6">
         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-4xl font-extrabold shadow-md">
@@ -78,8 +78,8 @@ export default function UserInfo() {
         <p><span className="text-gray-400 font-medium">College:</span> <span className="text-white">{college || "N/A"}</span></p>
       </div>
       <div className="my-8">
-        <h3 className="font-semibold text-lg mb-6 text-white">Social Media</h3>
-        <div className="flex justify-between text-2xl text-gray-400">
+        <h3 className="font-semibold text-lg text-center mb-6 text-white">Social Media</h3>
+        <div className="flex justify-around text-2xl text-gray-400">
           <button
             onClick={() => window.open(`${socials.linkedin}`, "_blank")}
             disabled={!socials.linkedin}
@@ -111,12 +111,12 @@ export default function UserInfo() {
         </div>
       </div>
       <div>
-        <h3 className="font-semibold text-lg mb-5 text-white">Problem Solving Statistics</h3>
-        <div className="flex flex-col gap-6">
+        <h3 className="font-semibold text-lg mb-5 text-center text-white">Problem Solving Platforms</h3>
+        <div className="flex flex-col items-center gap-6">
           <div className="flex items-center gap-3">
             <button
               disabled={!platforms.leetcode}
-              className={`w-40 flex justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`w-50 flex justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 platforms.leetcode
                   ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
                   : "bg-gray-700 text-gray-400 cursor-not-allowed"
@@ -139,7 +139,7 @@ export default function UserInfo() {
           <div className="flex items-center gap-3">
             <button
               disabled={!platforms.codeforces}
-              className={`w-40 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`w-50 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 platforms.codeforces
                   ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
                   : "bg-gray-700 text-gray-400 cursor-not-allowed"
@@ -162,7 +162,7 @@ export default function UserInfo() {
           <div className="flex items-center gap-3">
             <button
               disabled={!platforms.geeksforgeeks}
-              className={`w-40 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`w-50 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 platforms.geeksforgeeks
                   ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
                   : "bg-gray-700 text-gray-400 cursor-not-allowed"
@@ -185,7 +185,7 @@ export default function UserInfo() {
           <div className="flex items-center gap-3">
             <button
               disabled={!platforms.codestudio}
-              className={`w-40 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`w-50 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 platforms.codestudio
                   ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
                   : "bg-gray-700 text-gray-400 cursor-not-allowed"
@@ -208,7 +208,7 @@ export default function UserInfo() {
           <div className="flex items-center gap-3">
             <button
               disabled={!platforms.codechef}
-              className={`w-40 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`w-50 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 platforms.codechef
                   ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
                   : "bg-gray-700 text-gray-400 cursor-not-allowed"
@@ -231,7 +231,7 @@ export default function UserInfo() {
           <div className="flex items-center gap-3">
             <button
               disabled={!platforms.hackerrank}
-              className={`w-40 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`w-50 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 platforms.hackerrank
                   ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
                   : "bg-gray-700 text-gray-400 cursor-not-allowed"
@@ -254,7 +254,7 @@ export default function UserInfo() {
           <div className="flex items-center gap-3">
             <button
               disabled={!platforms.atcoder}
-              className={`w-40 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`w-50 flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 platforms.atcoder
                   ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
                   : "bg-gray-700 text-gray-400 cursor-not-allowed"

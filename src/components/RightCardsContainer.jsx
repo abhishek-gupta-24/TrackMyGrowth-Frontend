@@ -68,9 +68,9 @@ export default function RightCardsContainer() {
           <Loader text="Problems Stats" />
         </div>
       ) : (
-        <div className="bg-gray-900 p-6 rounded-2xl flex flex-col gap-6">
+        <div className="bg-gray-900 p-6 rounded-2xl flex flex-col items-center gap-6">
           <h1 className="text-2xl font-semibold text-indigo-300 text-center">Problems Solved</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
             <Card title="Total Questions" content={totalQuestions} />
             <Card title="DSA Questions" content={dsaQuestions} />
             <Card title="Competitive Programming" content={totalQuestions - dsaQuestions} />

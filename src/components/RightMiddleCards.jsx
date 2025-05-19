@@ -71,20 +71,32 @@ export default function RightMiddleCards() {
     <div className="w-full">
       {loader ? (
         <div className="bg-gray-900 h-64 p-6 flex justify-center items-center rounded-2xl">
-          <Loader text="Ratings" />
+          <Loader text="Problems Stats" />
         </div>
       ) : (
-        <div className="bg-gray-900 p-6 rounded-2xl flex flex-col gap-6">
-          <h1 className="text-2xl font-semibold text-indigo-300 text-center">Ratings</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Card title="LeetCode Rating" content={Math.floor(userRatings.leetcodeCurrRating)}
-              detail={Math.floor(userRatings.leetcodeMaxRating)} />
-            <Card title="CodeForces Rating" content={Math.floor(userRatings.codeforcesCurrRating)}
-              detail={Math.floor(userRatings.codeforcesMaxRating)} />
-            <Card title="CodeChef Rating" content={Math.floor(userRatings.codechefCurrRating)}
-              detail={Math.floor(userRatings.codechefMaxRating)} />
-            <Card title="AtCoder Rating" content={Math.floor(userRatings.atcoderCurrRating)}
-              detail={Math.floor(userRatings.atcoderMaxRating)} />
+        <div className="bg-gray-900 max-w-full p-4 sm:p-6 rounded-2xl flex flex-col gap-6 mx-auto w-full">
+          <h1 className="text-xl sm:text-2xl font-semibold text-indigo-300 text-center">Ratings</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
+            <Card
+              title="LeetCode Rating"
+              content={userRatings?.leetcodeCurrRating ? Math.floor(userRatings.leetcodeCurrRating) : ''}
+              detail={userRatings?.leetcodeMaxRating ? Math.floor(userRatings.leetcodeMaxRating) : ''}
+            />
+            <Card
+              title="CodeForces Rating"
+              content={userRatings?.codeforcesCurrRating ? Math.floor(userRatings.codeforcesCurrRating) : ''}
+              detail={userRatings?.codeforcesMaxRating ? Math.floor(userRatings.codeforcesMaxRating) : ''}
+            />
+            <Card
+              title="CodeChef Rating"
+              content={userRatings?.codechefCurrRating ? Math.floor(userRatings.codechefCurrRating) : ''}
+              detail={userRatings?.codechefMaxRating ? Math.floor(userRatings.codechefMaxRating) : ''}
+            />
+            <Card
+              title="AtCoder Rating"
+              content={userRatings?.atcoderCurrRating ? Math.floor(userRatings.atcoderCurrRating) : ''}
+              detail={userRatings?.atcoderMaxRating ? Math.floor(userRatings.atcoderMaxRating) : ''}
+            />
           </div>
         </div>
       )}
