@@ -113,7 +113,7 @@ export default function BottomGraph() {
             <div className="text-red-500 text-sm mb-4 text-center w-full">{error}</div>
             )}
             <div className='flex justify-center'>
-            <ContestGraph data={contestData} title="CodeForces and CodeChef Contest Ratings" />
+            <ContestGraph data={contestData} title="Ratings Graph" />
             </div>
         </div>
       )}
