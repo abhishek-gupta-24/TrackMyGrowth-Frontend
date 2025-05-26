@@ -88,7 +88,7 @@ export default function EditPlatforms() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <EditHeader />
+      <EditHeader backBtn="true"/>
       <div className="flex justify-center items-start px-4">
         <form
           onSubmit={handleSubmit}

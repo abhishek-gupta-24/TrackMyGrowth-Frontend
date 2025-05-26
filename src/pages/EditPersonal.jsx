@@ -100,7 +100,7 @@ export default function EditPersonal() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <EditHeader />
+      <EditHeader backBtn="true" />
       <div className="flex justify-center items-center px-4">
         <div className="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-xl mt-10">
           <h2 className="text-2xl font-bold mb-3 text-center">Update Personal Information</h2>
