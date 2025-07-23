@@ -26,6 +26,20 @@ export default function RightMiddleCards() {
 
   useEffect(() => {
     const fetchUserData = async () => {
+
+        try {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/leetcodeRating/${email}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUserRatings(prev => ({
+          ...prev,
+          leetcodeCurrRating: res.data.rating,
+          leetcodeMaxRating: res.data.maxRating,
+        }));
+      } catch (err) {
+        dispatch(setError('Failed to fetch Leetcode rating data'));
+      }
+
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codeforcesRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -36,7 +50,7 @@ export default function RightMiddleCards() {
           codeforcesMaxRating: res.data.maxRating,
         }));
       } catch (err) {
-        dispatch(setError('Failed to fetch CodeForces data'));
+        dispatch(setError('Failed to fetch CodeForces rating data'));
       }
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codechefRating/${email}`, {
@@ -48,7 +62,7 @@ export default function RightMiddleCards() {
           codechefMaxRating: res.data.maxRating,
         }));
       } catch (err) {
-        dispatch(setError('Failed to fetch CodeChef data'));
+        dispatch(setError('Failed to fetch CodeChef rating data'));
       }
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/atcoderRating/${email}`, {
@@ -60,7 +74,7 @@ export default function RightMiddleCards() {
           atcoderMaxRating: res.data.maxRating,
         }));
       } catch (err) {
-        dispatch(setError('Failed to fetch AtCoder data'));
+        dispatch(setError('Failed to fetch AtCoder rating data'));
       }
       setLoader(false);
     };
