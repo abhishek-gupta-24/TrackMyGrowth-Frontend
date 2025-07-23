@@ -37,6 +37,7 @@ export default function BottomGraph() {
           headers: { Authorization: `Bearer ${token}` },
         });
         const lcContests = leetcodeRes.data.contestRating ? leetcodeRes.data.contestRating.length : 0;
+        console.log(leetcodeRes.data.contestRating);
         maxContests = Math.max(maxContests, lcContests);
         setContestData((prev) => ({
           ...prev,
