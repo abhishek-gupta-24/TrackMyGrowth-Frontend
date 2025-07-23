@@ -31,6 +31,27 @@ export default function BottomGraph() {
 
       let maxContests = 0;
 
+
+      try {
+        const leetcodeRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/leetcodeRating/${email}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const lcContests = leetcodeRes.data.contestRating ? leetcodeRes.data.contestRating.length : 0;
+        maxContests = Math.max(maxContests, lcContests);
+        setContestData((prev) => ({
+          ...prev,
+          leetcodeRatings: leetcodeRes.data.contestRating
+            ? leetcodeRes.data.contestRating.map(c => c.newRating || 0)
+            : [],
+        }));
+      } catch (err) {
+        dispatch(setError('Failed to fetch leetcode rating graph'));
+        if (err.response?.status === 401 || err.response?.status === 403) {
+          dispatch(logout());
+          navigate('/login');
+        }
+      }
+
       try {
         const codeforcesRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codeforcesRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -44,12 +65,13 @@ export default function BottomGraph() {
             : [],
         }));
       } catch (err) {
-        dispatch(setError('Failed to fetch contest data'));
+        dispatch(setError('Failed to fetch Codeforces rating graph'));
         if (err.response?.status === 401 || err.response?.status === 403) {
           dispatch(logout());
           navigate('/login');
         }
       }
+
       try {
         const codechefRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/codechefRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -63,7 +85,7 @@ export default function BottomGraph() {
             : [],
         }));
       } catch (err) {
-        dispatch(setError('Failed to fetch contest data'));
+        dispatch(setError('Failed to fetch Codechef rating graph'));
         if (err.response?.status === 401 || err.response?.status === 403) {
           dispatch(logout());
           navigate('/login');
@@ -83,7 +105,7 @@ export default function BottomGraph() {
             : [],
         }));
       } catch (err) {
-        dispatch(setError('Failed to fetch contest data'));
+        dispatch(setError('Failed to fetch atCoder rating graph'));
         if (err.response?.status === 401 || err.response?.status === 403) {
           dispatch(logout());
           navigate('/login');
