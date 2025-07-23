@@ -37,11 +37,13 @@ export default function BottomGraph() {
           headers: { Authorization: `Bearer ${token}` },
         });
         const lcContests = leetcodeRes.data.contestRating ? leetcodeRes.data.contestRating.length : 0;
-        console.log(leetcodeRes.data.contestRating);
+        //console.log(leetcodeRes.data.contestRating);
         maxContests = Math.max(maxContests, lcContests);
         setContestData((prev) => ({
           ...prev,
-          leetcodeRatings: leetcodeRes.data.contestRating||[],
+          leetcodeRatings: leetcodeRes.data.contestRating ?
+            leetcodeRes.data.contestRating.map(c=>Math.floor(c)||0)
+            :[],
         }));
       } catch (err) {
         dispatch(setError('Failed to fetch leetcode rating graph'));
