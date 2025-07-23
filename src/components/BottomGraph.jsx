@@ -40,9 +40,7 @@ export default function BottomGraph() {
         maxContests = Math.max(maxContests, lcContests);
         setContestData((prev) => ({
           ...prev,
-          leetcodeRatings: leetcodeRes.data.contestRating
-            ? leetcodeRes.data.contestRating.map(c => c.newRating || 0)
-            : [],
+          leetcodeRatings: leetcodeRes.data.contestRating||[],
         }));
       } catch (err) {
         dispatch(setError('Failed to fetch leetcode rating graph'));
