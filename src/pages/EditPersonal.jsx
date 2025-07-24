@@ -106,9 +106,11 @@ export default function EditPersonal() {
           <h2 className="text-2xl font-bold mb-3 text-center">Update Personal Information</h2>
           {error && <div className="text-red-500 text-sm mb-4 text-center">{error}</div>}
 
-          {loading ? (
-            <p className="text-center text-gray-400">Loading...</p>
-          ) : (
+          {loading
+            ? <div className="flex justify-center">
+              <div className="w-8 h-8 mb-6 mr-4 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              <p>Loading your previous information</p>
+              </div>: (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block mb-1 text-sm font-semibold">Short Bio</label>

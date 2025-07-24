@@ -99,9 +99,11 @@ export default function EditPlatforms() {
           </h2>
           {error && <div className="text-red-500 text-sm mb-4 text-center">{error}</div>}
 
-          {loading ? (
-            <p className="text-center text-gray-400">Loading...</p>
-          ) : (
+          {loading
+            ? <div className="flex justify-center">
+              <div className="w-8 h-8 mb-6 mr-4 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              <p>Loading your previous information</p>
+              </div>: (
             platforms.map((platform) => (
               <div key={platform} className="mb-4">
                 <label
