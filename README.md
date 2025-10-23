@@ -2,7 +2,9 @@
 
 A comprehensive platform designed to help developers track their coding progress across multiple competitive programming platforms. Track problems solved, contest ratings, and maintain a professional profile all in one place.
 
-![TrackMyGrowth Logo](src/assets/LOGO2.png)
+<div align="center">
+  <img src="src/assets/LOGO2.png" alt="TrackMyGrowth Logo" width="120" height="120">
+</div>
 
 ## 🚀 Features
 
@@ -221,17 +223,13 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📧 Contact
 
 **Project Maintainer**: [Your Name]
-- Email: [your.email@example.com]
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: [abhishek.gupta.150803@gmail.com]
+- GitHub: [@yourusername](https://github.com/abhishek-gupta-24)
 
-**Project Link**: [https://github.com/yourusername/TrackMyGrowth](https://github.com/yourusername/TrackMyGrowth)
 
 ## 🙏 Acknowledgments
 
