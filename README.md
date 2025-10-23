@@ -224,11 +224,21 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 5. Open a Pull Request
 
 
-## 📧 Contact
+## 👥 Team Members
 
-**Project Maintainer**: [Your Name]
-- Email: [abhishek.gupta.150803@gmail.com]
-- GitHub: [@yourusername](https://github.com/abhishek-gupta-24)
+### **Project Maintainer**
+- **Abhishek Gupta**
+  - Email: [abhishek.gupta.150803@gmail.com]
+  - GitHub: [@abhishek-gupta-24](https://github.com/abhishek-gupta-24)
+
+### **Development Team**
+- **Ajay Singh**
+  - GitHub: [@ajay-singh](hhttps://github.com/12AjayPatel)
+
+- **Nikhil Raj** 
+  - Email: [your.email@example.com]
+  - GitHub: [@yourusername](hhttps://github.com/anonymous-03)
+
 
 
 ## 🙏 Acknowledgments
