@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
-import {Protected,UserInfo} from './components'
+import {Protected} from './components' 
 import { Provider } from 'react-redux'
 import store from './store/store.js'
 import Home from './pages/Home.jsx'
@@ -18,8 +18,6 @@ import EditSocial from './pages/EditSocial.jsx'
 import Features from './pages/Features.jsx'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -30,13 +28,17 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: (
-      <Login />
+      <Protected authentication={false}>
+        <Login />
+      </Protected>
     )
   },
   {
     path: '/signup',
     element: (
-      <Signup />
+      <Protected authentication={false}>
+        <Signup />
+      </Protected>
     )
   },
   {
@@ -50,42 +52,54 @@ const router = createBrowserRouter([
     path: '/profile',
     element:
       (
-        <Profile />
+        <Protected>
+          <Profile />
+        </Protected>
       )
   },
   {
     path: '/personalInfo',
     element:
       (
-        <PersonalInfo />
+        <Protected>
+          <PersonalInfo />
+        </Protected>
       )
   },
   {
     path: '/edit',
     element:
       (
-        <Edit />
+        <Protected>
+          <Edit />
+        </Protected>
       ),
   },
   {
       path: 'edit/personal',
       element:
       (
-        <EditPersonal/>
+        <Protected>
+          <EditPersonal/>
+        </Protected>
       )
   },
   {
     path: 'edit/platforms',
     element:
     (
-      <EditPlatforms/>
+      <Protected>
+        <EditPlatforms/>
+      </Protected>
     )
   },
   {
     path: 'edit/social',
     element:
     (
-      <EditSocial/>
+      <Protected>
+        <EditSocial/>
+      </Protected>
     )
   },
   {
@@ -96,10 +110,14 @@ const router = createBrowserRouter([
     )
   }
 ])
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Provider store={store}>
-       <RouterProvider router={router} />
-    </Provider>
-  </StrictMode>,
-)
+
+const container = document.getElementById('root');
+if (container) {
+  createRoot(container).render(
+    <StrictMode>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </StrictMode>,
+  );
+}
