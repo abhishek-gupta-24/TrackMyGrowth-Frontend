@@ -1,113 +1,244 @@
-# TrackMyGrowth-Frontend
+# TrackMyGrowth - Coding Progress Tracker
 
-The official frontend for the TrackMyGrowth application. This project is a modern, responsive user interface designed to help users track their personal and professional goals effectively. It communicates with the TrackMyGrowth-Backend to provide a seamless user experience.
+A comprehensive platform designed to help developers track their coding progress across multiple competitive programming platforms. Track problems solved, contest ratings, and maintain a professional profile all in one place.
 
----
+![TrackMyGrowth Logo](src/assets/LOGO2.png)
 
 ## 🚀 Features
 
-* **✨ Modern UI/UX:** A clean, intuitive, and responsive design built for a great user experience on any device.
-* **👤 User Authentication:** Secure user registration and login forms with token-based session management.
-* **📊 Interactive Dashboard:** A central dashboard to view, manage, and track the progress of all your goals.
-* **📝 Goal Management:** Easy-to-use interface for creating, updating, and deleting goals.
-* **📈 Progress Visualization:** `[e.g., Charts and graphs to visually represent goal progress over time.]`
-* **⚛️ Component-Based Architecture:** Built with reusable, modular components for easy maintenance and scalability.
+### 📊 **Multi-Platform Progress Tracking**
+- **LeetCode**: Track problems solved and contest ratings
+- **Codeforces**: Monitor submissions and rating progression
+- **GeeksforGeeks**: Keep track of practice problems
+- **CodeChef**: Contest participation and rating history
+- **HackerRank**: Skill assessments and challenges
+- **AtCoder**: Competitive programming contests
+- **CodeStudio**: Additional practice platform support
 
----
+### 📈 **Visual Progress Analytics**
+- Interactive charts and graphs showing rating progression
+- Problem-solving statistics across platforms
+- Contest performance tracking
+- Historical data visualization
+
+### 👤 **Personal Profile Management**
+- Create and customize your developer profile
+- Add personal information (bio, college, country, graduation year)
+- Social media links (LinkedIn, Instagram, Twitter, Portfolio)
+- Platform-specific usernames and handles
+
+### 🔐 **Secure Authentication**
+- JWT-based authentication system
+- Secure user registration and login
+- Protected routes and data access
 
 ## 🛠️ Tech Stack
 
-* **Framework/Library:** `[e.g., React.js / Angular / Vue.js]`
-* **State Management:** `[e.g., Redux / Context API / Vuex]`
-* **Routing:** `[e.g., React Router / Vue Router]`
-* **Styling:** `[e.g., CSS Modules / Styled-Components / Tailwind CSS / SASS]`
-* **API Communication:** `[e.g., Axios / Fetch API]`
-* **Package Manager:** `[e.g., npm / yarn]`
+### Frontend
+- **Framework**: React 19.0.0 with Vite
+- **State Management**: Redux Toolkit
+- **Routing**: React Router DOM
+- **Styling**: Tailwind CSS
+- **Charts**: Chart.js with React-ChartJS-2
+- **HTTP Client**: Axios
+- **Icons**: React Icons & FontAwesome
 
----
+### Backend
+- **Runtime**: Node.js with Express.js
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: JWT (JSON Web Tokens)
+- **Security**: bcryptjs for password hashing
+- **CORS**: Cross-origin resource sharing enabled
 
-## 📋 Getting Started
+## 📋 Prerequisites
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+Before running this project, make sure you have:
 
-### Prerequisites
+- **Node.js** (v16 or higher)
+- **npm** or **yarn** package manager
+- **MongoDB** database (local or cloud)
+- **Git** for version control
 
-You will need the following tools installed on your system:
-* [Node.js](https://nodejs.org/) (which includes npm)
-* [Git](https://git-scm.com/)
+## 🚀 Getting Started
 
-### Installation
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/TrackMyGrowth.git
+cd TrackMyGrowth
+```
 
-1.  **Clone the repository:**
-    ```sh
-    git clone [https://github.com/abhishek-gupta-24/TrackMyGrowth-Frontend.git](https://github.com/abhishek-gupta-24/TrackMyGrowth-Frontend.git)
-    ```
+### 2. Backend Setup
 
-2.  **Navigate to the project directory:**
-    ```sh
-    cd TrackMyGrowth-Frontend
-    ```
+```bash
+# Navigate to backend directory
+cd Backend
 
-3.  **Install dependencies:**
-    ```sh
-    npm install
-    ```
-    *(Or `yarn install` if you use Yarn)*
+# Install dependencies
+npm install
 
-4.  **Configure Environment Variables:**
-    * Create a `.env.local` file in the root of your project.
-    * Add the backend API endpoint to this file. This tells your frontend where to send its API requests.
-        ```
-        REACT_APP_API_URL=http://localhost:8080/api
-        ```
-        *(Note: The variable name `REACT_APP_API_URL` is an example for Create React App. Adjust it based on your project's configuration, e.g., `VITE_API_URL` for Vite.)*
+# Create environment variables
+cp .env.example .env
+```
 
----
+Create a `.env` file in the Backend directory with:
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+PORT=5000
+```
+
+```bash
+# Start the backend server
+npm start
+```
+
+The backend will run on `http://localhost:5000`
+
+### 3. Frontend Setup
+
+```bash
+# Navigate to frontend directory (in a new terminal)
+cd Frontend
+
+# Install dependencies
+npm install
+
+# Create environment variables
+cp .env.example .env.local
+```
+
+Create a `.env.local` file in the Frontend directory with:
+```env
+VITE_API_BASE_URL=http://localhost:5000/api
+```
+
+```bash
+# Start the development server
+npm run dev
+```
+
+The frontend will run on `http://localhost:5173`
 
 ## 📜 Available Scripts
 
-In the project directory, you can run:
+### Frontend Scripts
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
+```
 
-### `npm start`
+### Backend Scripts
+```bash
+npm start        # Start production server
+```
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits.
+## 🏗️ Project Structure
 
-### `npm test`
+```
+TrackMyGrowth/
+├── Frontend/
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   ├── pages/         # Application pages/routes
+│   │   ├── store/         # Redux store configuration
+│   │   ├── assets/        # Static assets (images, icons)
+│   │   └── main.jsx       # Application entry point
+│   ├── package.json
+│   └── vite.config.js
+├── Backend/
+│   ├── Controllers/       # Route controllers
+│   ├── models/           # Database models
+│   ├── routes/           # API routes
+│   ├── middleware/       # Custom middleware
+│   ├── index.js          # Server entry point
+│   └── package.json
+└── README.md
+```
 
-Launches the test runner in interactive watch mode.\
-*(You may need to set up testing libraries like Jest and React Testing Library if not already present.)*
+## 🔧 API Endpoints
 
-### `npm run build`
+### Authentication
+- `POST /api/auth/signup` - User registration
+- `POST /api/auth/login` - User login
 
-Builds the app for production to the `build` folder.\
-It correctly bundles the application in production mode and optimizes it for the best performance.
+### User Management
+- `PUT /api/update/platforms/userinfo/:email` - Update platform usernames
+- `PUT /api/update/personalInfo/:email` - Update personal information
+- `PUT /api/update/editSocialInfo/:email` - Update social links
 
----
+### Data Fetching
+- `GET /api/fetch/userInfo/:email` - Get user profile
+- `GET /api/fetch/platformInfo/:email` - Get platform data
+- `GET /api/fetch/personalInfo/:email` - Get personal information
+
+### Statistics
+- `GET /api/stats/leetcode/:email` - LeetCode statistics
+- `GET /api/stats/codeforces/:email` - Codeforces statistics
+- `GET /api/stats/gfg/:email` - GeeksforGeeks statistics
+- `GET /api/stats/atcoder/:email` - AtCoder statistics
+
+## 🎯 Key Features Explained
+
+### Platform Integration
+The app integrates with external APIs to fetch real-time data:
+- **LeetCode API**: Fetches problems solved and contest ratings
+- **Codeforces API**: Retrieves submission history and ratings
+- **GeeksforGeeks API**: Gets practice problem statistics
+- **AtCoder API**: Fetches contest participation data
+
+### Data Visualization
+- Interactive charts showing rating progression over time
+- Problem-solving statistics with visual representations
+- Contest performance tracking with historical data
+
+### User Experience
+- Responsive design that works on all devices
+- Dark theme optimized for developers
+- Intuitive navigation and user interface
+- Real-time data updates
+
+## 🚀 Deployment
+
+### Frontend (Vercel)
+1. Connect your GitHub repository to Vercel
+2. Set environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### Backend (Vercel)
+1. Deploy using Vercel CLI or dashboard
+2. Set environment variables
+3. Configure MongoDB Atlas for production
 
 ## 🤝 Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-To contribute:
-
-1.  Fork the Project.
-2.  Create your Feature Branch (`git checkout -b feature/AmazingNewFeature`).
-3.  Commit your Changes (`git commit -m 'Add some AmazingNewFeature'`).
-4.  Push to the Branch (`git push origin feature/AmazingNewFeature`).
-5.  Open a Pull Request.
-
----
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. See the `LICENSE` file for more details.
-
----
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📧 Contact
 
-Ajay Singh - `[ajaypatel808131@gmail.com]`
+**Project Maintainer**: [Your Name]
+- Email: [your.email@example.com]
+- GitHub: [@yourusername](https://github.com/yourusername)
 
-Project Link: [https://github.com/abhishek-gupta-24/TrackMyGrowth-Frontend](https://github.com/abhishek-gupta-24/TrackMyGrowth-Frontend)
+**Project Link**: [https://github.com/yourusername/TrackMyGrowth](https://github.com/yourusername/TrackMyGrowth)
+
+## 🙏 Acknowledgments
+
+- External API providers (LeetCode, Codeforces, GeeksforGeeks, etc.)
+- Open source libraries and frameworks used
+- Community contributors and testers
+
+---
+
+**Made with ❤️ for the coding community**
