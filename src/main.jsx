@@ -61,9 +61,7 @@ const router = createBrowserRouter([
     path: '/personalInfo',
     element:
       (
-        <Protected>
-          <PersonalInfo />
-        </Protected>
+        <PersonalInfo />
       )
   },
   {
