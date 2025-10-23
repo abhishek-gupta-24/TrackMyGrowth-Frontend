@@ -236,7 +236,6 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
   - GitHub: [@ajay-singh](hhttps://github.com/12AjayPatel)
 
 - **Nikhil Raj** 
-  - Email: [your.email@example.com]
   - GitHub: [@yourusername](hhttps://github.com/anonymous-03)
 
 
