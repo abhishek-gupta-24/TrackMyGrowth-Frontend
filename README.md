@@ -233,10 +233,10 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ### **Development Team**
 - **Ajay Singh**
-  - GitHub: [@ajay-singh](hhttps://github.com/12AjayPatel)
+  - GitHub: [@Ajay Singh](https://github.com/12AjayPatel)
 
 - **Nikhil Raj** 
-  - GitHub: [@yourusername](hhttps://github.com/anonymous-03)
+  - GitHub: [@Nikhil Raj](https://github.com/anonymous-03)
 
 
 
