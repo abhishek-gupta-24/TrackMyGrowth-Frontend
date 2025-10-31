@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { setError, logout } from '../store/authSlice';
 import Loader from './Load';
 import ContestGraph from './ContestGraph';
+import ContestSummaryCard from './ContestSummaryCard'; // Import the new component
 
 export default function BottomGraph() {
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true); // Set to true initially
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { email, token } = useSelector((state) => state.auth.userData) || {};
@@ -22,6 +23,7 @@ export default function BottomGraph() {
   });
 
   useEffect(() => {
+    // This function now uses your original sequential try...catch logic
     const fetchContestData = async () => {
       if (!email || !token) {
         dispatch(setError('Please log in to view ratings'));
@@ -31,19 +33,17 @@ export default function BottomGraph() {
 
       let maxContests = 0;
 
-
       try {
         const leetcodeRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/stats/leetcodeRating/${email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const lcContests = leetcodeRes.data.contestRating ? leetcodeRes.data.contestRating.length : 0;
-        //console.log(leetcodeRes.data.contestRating);
         maxContests = Math.max(maxContests, lcContests);
         setContestData((prev) => ({
           ...prev,
           leetcodeRatings: leetcodeRes.data.contestRating ?
-            leetcodeRes.data.contestRating.map(c=>Math.floor(c)||0)
-            :[],
+            leetcodeRes.data.contestRating.map(c => Math.floor(c) || 0)
+            : [],
         }));
       } catch (err) {
         dispatch(setError('Failed to fetch leetcode rating graph'));
@@ -122,22 +122,27 @@ export default function BottomGraph() {
       setLoader(false);
     };
     fetchContestData();
-  }, [dispatch]);
+  }, [email, token, dispatch, navigate]); // Dependencies for re-fetching data
 
   return (
     <div className="w-full">
       {loader ? (
         <div className="bg-gray-900 h-80 p-6 flex justify-center items-center rounded-2xl">
-          <Loader text='ratings'/>
+          <Loader text='ratings' />
         </div>
       ) : (
-        <div className="bg-gray-900 p-6 rounded-2xl flex flex-col gap-6">
-          {error && (
-            <div className="text-red-500 text-sm mb-4 text-center w-full">{error}</div>
-            )}
+        <div className="flex flex-col md:flex-row gap-6 items-start">
+          
+          {/* LEFT CARD: New Contest Summary Card */}
+          <ContestSummaryCard data={contestData} />
+
+          {/* RIGHT CARD: Existing Ratings Graph */}
+          <div className="bg-gray-900 p-6 rounded-2xl flex-1 w-full">
             <div className='flex justify-center'>
-            <ContestGraph data={contestData} title="Ratings Graph" />
+              <ContestGraph data={contestData} title="Ratings Graph" />
             </div>
+          </div>
+
         </div>
       )}
     </div>
